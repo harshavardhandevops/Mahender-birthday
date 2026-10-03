@@ -4,471 +4,975 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mahender's Birthday 🎂</title>
+<title>Mahender's Secret Birthday 🎂</title>
 
 <style>
+
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #141e30, #243b55);
-    color: white;
+    margin: 0;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at top, #3949ab, transparent 40%),
+        linear-gradient(135deg, #111827, #312e81, #581c87);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     overflow-x: hidden;
 }
 
 .container {
-    width: 90%;
-    max-width: 650px;
-    text-align: center;
-    padding: 30px;
+    width: 92%;
+    max-width: 700px;
+    padding: 25px 0;
 }
 
 .card {
+
     background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(15px);
-    border-radius: 25px;
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 28px;
+
     padding: 40px 25px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    animation: fadeIn 0.8s ease;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.4);
+
+    animation: appear .7s ease;
+
+}
+
+.hidden {
+    display:none;
 }
 
 h1 {
     font-size: 42px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
 }
 
 h2 {
     font-size: 30px;
-    margin-bottom: 20px;
 }
 
 p {
     font-size: 18px;
     line-height: 1.7;
-    margin-bottom: 20px;
+}
+
+.emoji {
+    font-size: 65px;
 }
 
 button {
+
     border: none;
-    padding: 14px 25px;
+
+    padding: 15px 26px;
+
+    margin: 10px;
+
     border-radius: 30px;
-    background: white;
-    color: #222;
+
     font-size: 17px;
+
     font-weight: bold;
+
     cursor: pointer;
-    margin: 8px;
-    transition: 0.3s;
+
+    transition: .25s;
+
 }
 
 button:hover {
     transform: scale(1.08);
-    box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+}
+
+.primary {
+    background: white;
+    color: #312e81;
+}
+
+.yes {
+    background: #22c55e;
+    color:white;
+}
+
+.no {
+    background:#ef4444;
+    color:white;
+
+    position:relative;
+}
+
+.option {
+
+    display:block;
+
+    width:80%;
+
+    margin:12px auto;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.2);
+
+}
+
+.option:hover {
+
+    background:white;
+
+    color:#312e81;
+
+}
+
+.memory {
+
+    background:rgba(0,0,0,.2);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin:20px 0;
+
 }
 
 .meme {
-    margin: 20px auto;
-    max-width: 100%;
-    border-radius: 18px;
-    display: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    width:100%;
+
+    max-width:500px;
+
+    border-radius:18px;
+
+    margin:20px auto;
+
+    display:block;
+
+}
+
+.photo-placeholder {
+
+    border:2px dashed rgba(255,255,255,.4);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin:20px 0;
+
 }
 
 .progress {
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
-    opacity: 0.7;
-}
 
-.emoji {
-    font-size: 55px;
-    margin-bottom: 15px;
-}
+    position:fixed;
 
-.hidden {
-    display: none;
+    top:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:13px;
+
+    opacity:.7;
+
 }
 
 .confetti {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    top: -10px;
-    animation: fall 3s linear forwards;
+
+    position:fixed;
+
+    width:10px;
+
+    height:10px;
+
+    top:-10px;
+
+    animation:fall 4s linear forwards;
+
 }
 
-@keyframes fadeIn {
+@keyframes appear {
+
     from {
-        opacity: 0;
-        transform: translateY(25px);
+        opacity:0;
+        transform:translateY(30px) scale(.95);
     }
+
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity:1;
+        transform:translateY(0) scale(1);
     }
+
 }
 
 @keyframes fall {
+
     to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0;
+        transform:translateY(110vh) rotate(720deg);
     }
+
 }
 
-@media(max-width:500px) {
+@media(max-width:500px){
+
     h1 {
-        font-size: 32px;
+        font-size:32px;
     }
 
     h2 {
-        font-size: 25px;
+        font-size:25px;
     }
 
     p {
-        font-size: 16px;
+        font-size:16px;
     }
 
-    .card {
-        padding: 30px 18px;
-    }
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="progress" id="progress">
-    LEVEL 1 / 6
+LEVEL 1
 </div>
 
 <div class="container">
 
-    <!-- STEP 1 -->
-    <div class="card" id="step1">
 
-        <div class="emoji">🔐</div>
+<!-- ================================================= -->
+<!-- STEP 1 -->
+<!-- ================================================= -->
 
-        <h1>CLASSIFIED FILE</h1>
+<div class="card" id="step1">
 
-        <p>
-            ⚠️ WARNING ⚠️
-        </p>
+<div class="emoji">🔐</div>
 
-        <p>
-            This page contains highly confidential information
-            about one very suspicious human.
-        </p>
+<h1>CLASSIFIED FILE</h1>
 
-        <p>
-            Only <b>MAHENDER</b> is authorized to enter.
-        </p>
+<p>⚠️ WARNING ⚠️</p>
 
-        <button onclick="nextStep(2)">
-            🔓 CLICK NOW
-        </button>
+<p>
+This website contains extremely confidential information
+about one suspicious human named...
+</p>
 
-    </div>
+<h2>MAHENDER 👀</h2>
 
+<p>
+Access allowed only to the birthday boy.
+</p>
 
-    <!-- STEP 2 -->
-    <div class="card hidden" id="step2">
+<button class="primary" onclick="nextStep(2)">
+🔓 CLICK NOW
+</button>
 
-        <div class="emoji">👋</div>
+</div>
 
-        <h2>Hello Mahender!</h2>
 
-        <p>
-            Welcome to your extremely unnecessary...
-            but totally important birthday investigation. 😂
-        </p>
+<!-- ================================================= -->
+<!-- STEP 2 -->
+<!-- ================================================= -->
 
-        <p>
-            Before we continue...
-        </p>
+<div class="card hidden" id="step2">
 
-        <h2>What are you looking for? 🤔</h2>
+<div class="emoji">👋</div>
 
-        <button onclick="choice('laugh')">
-            😂 A Good Laugh
-        </button>
+<h1>Hello Mahender!</h1>
 
-        <button onclick="choice('surprise')">
-            🎁 A Surprise
-        </button>
+<p>
+Welcome to your very unnecessarily complicated
+birthday surprise. 😂
+</p>
 
-        <button onclick="choice('secret')">
-            🕵️ Secret Information
-        </button>
+<p>
+Before we proceed, we need to establish
+something VERY important.
+</p>
 
-    </div>
+<h2>
+Are you ready?
+</h2>
 
+<button class="primary" onclick="nextStep(3)">
+YES 😎
+</button>
 
-    <!-- STEP 3 -->
-    <div class="card hidden" id="step3">
+<button class="primary" onclick="nextStep(3)">
+Obviously 🙄
+</button>
 
-        <div class="emoji">🕵️</div>
+</div>
 
-        <h2>Interesting Choice...</h2>
 
-        <p id="choiceText"></p>
+<!-- ================================================= -->
+<!-- STEP 3 BEST FRIEND QUESTION -->
+<!-- ================================================= -->
 
-        <p>
-            Unfortunately, Mahender...
-        </p>
+<div class="card hidden" id="step3">
 
-        <p>
-            You cannot escape this investigation. 😈
-        </p>
+<div class="emoji">❤️</div>
 
-        <button onclick="nextStep(4)">
-            🔎 SHOW THE EVIDENCE
-        </button>
+<h2>IMPORTANT QUESTION</h2>
 
-    </div>
+<p>
 
+Be honest...
 
-    <!-- STEP 4 -->
-    <div class="card hidden" id="step4">
+</p>
 
-        <div class="emoji">😂</div>
+<h1>
+Am I your only<br>
+BEST FRIEND? 👀
+</h1>
 
-        <h2>THE INVESTIGATION</h2>
+<p>
+Think carefully before answering...
+</p>
 
-        <p>
-            After years of scientific research...
-        </p>
+<button class="yes" onclick="bestFriendYes()">
+YES ❤️
+</button>
 
-        <p>
-            We have discovered some interesting facts about Mahender.
-        </p>
+<button
+class="no"
+id="noButton"
+onmouseover="runAway()"
+ontouchstart="runAway()"
+onclick="runAway()">
 
-        <div style="font-size:18px; text-align:left; margin:20px;">
+NO 😈
 
-            🧠 Intelligence:
-            ███████░░░ 70%
+</button>
 
-            <br><br>
+<p id="noMessage"></p>
 
-            😂 Comedy:
-            ██████████ 100%
+</div>
 
-            <br><br>
 
-            😴 Sleeping:
-            ██████████ 100%
+<!-- ================================================= -->
+<!-- STEP 4 -->
+<!-- ================================================= -->
 
-            <br><br>
+<div class="card hidden" id="step4">
 
-            🍕 Food Detection:
-            ██████████ 100%
+<div class="emoji">😂</div>
 
-            <br><br>
+<h2>
+GOOD ANSWER.
+</h2>
 
-            🕐 Being On Time:
-            ██░░░░░░░░ 20%
+<p>
+I knew you had good taste.
+</p>
 
-            <br><br>
+<p>
+But now we need to test how well you actually know
+your own life.
+</p>
 
-            🤦 Questionable Decisions:
-            ███████████ 110%
+<h2>
+QUESTION #1
+</h2>
 
-        </div>
+<p>
+If Mahender says...
+</p>
 
-        <p>
-            Scientists are still trying to understand how he does it.
-        </p>
+<h2>
+"I'm coming in 5 minutes."
+</h2>
 
-        <button onclick="nextStep(5)">
-            🚨 SHOW THE FINAL EVIDENCE
-        </button>
+<p>
+What does it actually mean?
+</p>
 
-    </div>
+<button class="option"
+onclick="quizAnswer('wrong')">
 
+⏱️ 5 minutes
 
-    <!-- STEP 5 -->
-    <div class="card hidden" id="step5">
+</button>
 
-        <div class="emoji">🎂</div>
+<button class="option"
+onclick="quizAnswer('right')">
 
-        <h2>WAIT...</h2>
+😂 Somewhere between 30 minutes and tomorrow
 
-        <p>
-            Why are there balloons everywhere? 🎈
-        </p>
+</button>
 
-        <p>
-            Why is there cake? 🎂
-        </p>
+<button class="option"
+onclick="quizAnswer('wrong')">
 
-        <p>
-            Why are we celebrating?
-        </p>
+🚀 He is already outside
 
-        <p>
-            Ohhhhh...
-        </p>
+</button>
 
-        <h1>🎉 IT'S MAHENDER'S DAY! 🎉</h1>
+</div>
 
-        <button onclick="birthdayReveal()">
-            🎁 OPEN YOUR BIRTHDAY SURPRISE
-        </button>
 
-    </div>
+<!-- ================================================= -->
+<!-- STEP 5 -->
+<!-- ================================================= -->
 
+<div class="card hidden" id="step5">
 
-    <!-- STEP 6 -->
-    <div class="card hidden" id="step6">
+<div class="emoji">🧠</div>
 
-        <div class="emoji">🥳</div>
+<h2>
+QUESTION #2
+</h2>
 
-        <h1>HAPPY BIRTHDAY</h1>
+<p>
+What is Mahender's greatest superpower?
+</p>
 
-        <h1>MAHENDER! 🎂</h1>
+<button class="option"
+onclick="nextStep(6)">
 
-        <!--
-        Later we can add Mahender's photo here.
+😴 Sleeping anywhere
 
-        Example:
+</button>
 
-        <img src="mahender1.jpg"
-             class="meme"
-             style="display:block;">
-        -->
+<button class="option"
+onclick="nextStep(6)">
 
-        <p>
-            ❤️ Another year completed.
-            Another level unlocked. 🎮
-        </p>
+😂 Making people laugh
 
-        <p>
-            I hope this year brings you
-            countless reasons to smile,
-            amazing memories,
-            crazy adventures,
-            success and happiness.
-        </p>
+</button>
 
-        <p>
-            Keep being the same crazy,
-            funny and amazing person you are. 😂
-        </p>
+<button class="option"
+onclick="nextStep(6)">
 
-        <p>
-            Here's to another year of
-            unforgettable memories! 🥂
-        </p>
+🍕 Detecting food from 500 meters
 
-        <h2>
-            HAPPY BIRTHDAY ONCE AGAIN! 🎉❤️
-        </h2>
+</button>
 
-        <p>
-            Now go eat some cake.
-            That's an order. 😎
-        </p>
+<button class="option"
+onclick="nextStep(6)">
 
-        <button onclick="location.reload()">
-            🔄 PLAY AGAIN
-        </button>
+🤦 Making questionable decisions
 
-    </div>
+</button>
+
+<p>
+Honestly...
+</p>
+
+<p>
+<strong>
+All of the above.
+</strong>
+😂
+</p>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- STEP 6 CHILDHOOD -->
+<!-- ================================================= -->
+
+<div class="card hidden" id="step6">
+
+<div class="emoji">🏫</div>
+
+<h1>A LITTLE THROWBACK</h1>
+
+<div class="memory">
+
+<p>
+You know what's funny?
+</p>
+
+<p>
+We weren't actually that close during school.
+</p>
+
+<p>
+We were there...
+</p>
+
+<p>
+We knew each other...
+</p>
+
+<p>
+But life had other plans. 😄
+</p>
+
+</div>
+
+<button class="primary"
+onclick="nextStep(7)">
+
+SO WHAT HAPPENED?
+
+</button>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- STEP 7 ADULTING -->
+<!-- ================================================= -->
+
+<div class="card hidden" id="step7">
+
+<div class="emoji">🧑‍💻</div>
+
+<h1>ADULTING HAPPENED...</h1>
+
+<div class="memory">
+
+<p>
+Somehow...
+</p>
+
+<p>
+School didn't make us best friends.
+</p>
+
+<p>
+<strong>
+Adulting did.
+</strong>
+</p>
+
+<p>
+😂
+</p>
+
+<p>
+Somewhere along the way,
+random conversations became long conversations,
+and casual friendship became
+<strong>actual friendship.</strong>
+</p>
+
+</div>
+
+<button class="primary"
+onclick="nextStep(8)">
+
+KEEP GOING ❤️
+
+</button>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- STEP 8 MEMORY -->
+<!-- ================================================= -->
+
+<div class="card hidden" id="step8">
+
+<div class="emoji">📸</div>
+
+<h1>THE MEMORIES</h1>
+
+<p>
+Not every friendship needs to start in childhood.
+</p>
+
+<p>
+Sometimes the best ones happen when you're older...
+when you actually understand the value of having
+someone around.
+</p>
+
+<div class="memory">
+
+<p>
+From random conversations...
+</p>
+
+<p>
+to random plans...
+</p>
+
+<p>
+to random nonsense...
+</p>
+
+<p>
+somehow we collected a lot of memories. 😂
+</p>
+
+</div>
+
+<button class="primary"
+onclick="nextStep(9)">
+
+SHOW ME THE MEMES 😂
+
+</button>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- STEP 9 MEMES -->
+<!-- ================================================= -->
+
+<div class="card hidden" id="step9">
+
+<div class="emoji">🤣</div>
+
+<h1>MEME DEPARTMENT</h1>
+
+<p>
+Because no birthday friendship website
+is complete without memes.
+</p>
+
+<!-- TEST MEME -->
+
+<img
+class="meme"
+src="https://cdn.memes.com/up/59065661634833463/i/1636906523819.png"
+alt="Birthday meme">
+
+<p>
+<strong>
+How normal friends celebrate birthdays:
+</strong>
+</p>
+
+<p>
+🎂 Happy Birthday bro!
+</p>
+
+<p>
+<strong>
+How we celebrate:
+</strong>
+</p>
+
+<p>
+🔥🔥🔥 CHAOS 🔥🔥🔥
+</p>
+
+<button class="primary"
+onclick="nextStep(10)">
+
+ONE LAST TEST 😈
+
+</button>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- STEP 10 -->
+<!-- ================================================= -->
+
+<div class="card hidden" id="step10">
+
+<div class="emoji">🤔</div>
+
+<h2>
+FINAL QUESTION
+</h2>
+
+<p>
+If we had met much earlier...
+</p>
+
+<p>
+would we have become this close?
+</p>
+
+<button class="option"
+onclick="finalThought()">
+
+Maybe ❤️
+
+</button>
+
+<button class="option"
+onclick="finalThought()">
+
+Definitely 😂
+
+</button>
+
+<button class="option"
+onclick="finalThought()">
+
+We would have annoyed each other sooner 🤣
+
+</button>
+
+<div id="finalThought"></div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- STEP 11 FINAL -->
+<!-- ================================================= -->
+
+<div class="card hidden" id="step11">
+
+<div class="emoji">🎂</div>
+
+<h1>
+HAPPY BIRTHDAY
+</h1>
+
+<h1>
+MAHENDER! 🥳
+</h1>
+
+<div class="photo-placeholder">
+
+<p>
+📸 MAHENDER'S BEST PHOTO WILL GO HERE
+</p>
+
+<p>
+We'll replace this with your actual photo.
+</p>
+
+</div>
+
+<p>
+Another year.
+</p>
+
+<p>
+Another level unlocked. 🎮
+</p>
+
+<p>
+And somehow you're still surviving. 😂
+</p>
+
+<div class="memory">
+
+<p>
+I'm genuinely glad that life brought us
+closer when it did.
+</p>
+
+<p>
+We may not have been the closest during school,
+but somewhere during this crazy thing called
+<strong>adulting</strong>,
+we became friends who actually matter to each other.
+</p>
+
+<p>
+And honestly...
+that's a pretty cool story. ❤️
+</p>
+
+</div>
+
+<h2>
+Here's to more memories,
+more nonsense,
+more laughs,
+and many more birthdays. 🥂
+</h2>
+
+<h1>
+HAPPY BIRTHDAY BRO! 🎉❤️
+</h1>
+
+<button class="primary"
+onclick="createConfetti()">
+
+🎉 CELEBRATE
+</button>
+
+</div>
 
 </div>
 
 
 <script>
 
-function nextStep(step) {
 
-    for(let i = 1; i <= 6; i++) {
-        document.getElementById("step" + i)
-            .classList.add("hidden");
-    }
+function nextStep(step){
 
-    document.getElementById("step" + step)
-        .classList.remove("hidden");
+    for(let i=1;i<=11;i++){
 
-    document.getElementById("progress")
-        .innerText = "LEVEL " + step + " / 6";
+        let el=document.getElementById("step"+i);
 
-    window.scrollTo(0,0);
-}
-
-
-function choice(type) {
-
-    let text = "";
-
-    if(type === "laugh") {
-
-        text =
-        "😂 Good choice. You clearly understand the purpose of this website.";
+        if(el){
+            el.classList.add("hidden");
+        }
 
     }
 
-    else if(type === "surprise") {
+    document
+    .getElementById("step"+step)
+    .classList.remove("hidden");
 
-        text =
-        "🎁 A surprise? Of course. But you have to earn it first.";
+    document
+    .getElementById("progress")
+    .innerText="LEVEL "+step;
 
-    }
-
-    else {
-
-        text =
-        "🕵️ Secret information? That's exactly what we were hoping you would choose.";
-
-    }
-
-    document.getElementById("choiceText").innerText = text;
-
-    nextStep(3);
-}
-
-
-function birthdayReveal() {
-
-    nextStep(6);
-
-    createConfetti();
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
 
-function createConfetti() {
+/* BEST FRIEND YES */
 
-    for(let i = 0; i < 120; i++) {
+function bestFriendYes(){
 
-        let confetti = document.createElement("div");
+    alert(
+        "CORRECT ANSWER! ❤️😂\n\nProceeding with the investigation..."
+    );
 
-        confetti.className = "confetti";
+    nextStep(4);
 
-        confetti.style.left =
-            Math.random() * 100 + "vw";
+}
 
-        confetti.style.animationDelay =
-            Math.random() * 2 + "s";
 
-        confetti.style.background =
-            "hsl(" + Math.random()*360 + ", 100%, 60%)";
+/* NO BUTTON RUNS AWAY */
 
-        document.body.appendChild(confetti);
+function runAway(){
 
-        setTimeout(() => {
-            confetti.remove();
-        }, 5000);
+    const button =
+        document.getElementById("noButton");
+
+    const message =
+        document.getElementById("noMessage");
+
+    const maxX =
+        window.innerWidth - button.offsetWidth - 30;
+
+    const maxY =
+        window.innerHeight - button.offsetHeight - 30;
+
+    const x =
+        Math.random()*Math.max(maxX,100);
+
+    const y =
+        Math.random()*Math.max(maxY,100);
+
+    button.style.position="fixed";
+
+    button.style.left=x+"px";
+
+    button.style.top=y+"px";
+
+    message.innerText=
+        "😂 Nice try Mahender... the NO button has left the chat.";
+
+}
+
+
+/* QUIZ */
+
+function quizAnswer(answer){
+
+    if(answer==="right"){
+
+        alert(
+            "😂 EXACTLY!\n\nScientists confirm your answer."
+        );
+
+    }
+    else{
+
+        alert(
+            "❌ WRONG!\n\nYou clearly don't know yourself."
+        );
+
+    }
+
+    nextStep(5);
+
+}
+
+
+/* FINAL THOUGHT */
+
+function finalThought(){
+
+    document
+    .getElementById("finalThought")
+    .innerHTML=`
+
+        <div class="memory">
+
+        <p>
+        Whatever the answer...
+        </p>
+
+        <p>
+        I'm glad we became friends.
+        ❤️
+        </p>
+
+        <button class="primary"
+        onclick="nextStep(11)">
+
+        🎂 SHOW THE BIRTHDAY MESSAGE
+
+        </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* CONFETTI */
+
+function createConfetti(){
+
+    for(let i=0;i<150;i++){
+
+        let c=
+        document.createElement("div");
+
+        c.className="confetti";
+
+        c.style.left=
+        Math.random()*100+"vw";
+
+        c.style.background=
+        "hsl("+Math.random()*360+",100%,60%)";
+
+        c.style.animationDelay=
+        Math.random()*2+"s";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },5000);
 
     }
 
