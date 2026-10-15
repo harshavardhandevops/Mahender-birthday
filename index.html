@@ -1,984 +1,789 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mahender's Secret Birthday 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#38251f">
+<title>The Mahender Chronicles | A Birthday Story</title>
 
 <style>
-
-* {
-    box-sizing: border-box;
+:root {
+  --ink: #39251e;
+  --paper: #fff8ec;
+  --cream: #f4e6ce;
+  --brown: #754c37;
+  --gold: #d7a65a;
+  --rose: #c87578;
+  --green: #536b50;
 }
-
+* { box-sizing: border-box; }
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: white;
-    background:
-        radial-gradient(circle at top, #3949ab, transparent 40%),
-        linear-gradient(135deg, #111827, #312e81, #581c87);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(ellipse at 15% 10%, #866047 0, transparent 34%),
+    radial-gradient(ellipse at 90% 90%, #574034 0, transparent 36%),
+    linear-gradient(135deg,#211914,#594031 55%,#2c201a);
 }
-
-.container {
-    width: 92%;
-    max-width: 700px;
-    padding: 25px 0;
+button { font: inherit; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 13px 18px;
+  color: #fff3df;
+  background: #291c17ed;
+  border-bottom: 1px solid #b8915b77;
+  font-size: 12px;
+  letter-spacing: 1.5px;
 }
-
-.card {
-
-    background: rgba(255,255,255,0.12);
-
-    backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    border-radius: 28px;
-
-    padding: 40px 25px;
-
-    text-align: center;
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,0.4);
-
-    animation: appear .7s ease;
-
-}
-
-.hidden {
-    display:none;
-}
-
-h1 {
-    font-size: 42px;
-    margin: 10px 0 20px;
-}
-
-h2 {
-    font-size: 30px;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.emoji {
-    font-size: 65px;
-}
-
-button {
-
-    border: none;
-
-    padding: 15px 26px;
-
-    margin: 10px;
-
-    border-radius: 30px;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: .25s;
-
-}
-
-button:hover {
-    transform: scale(1.08);
-}
-
-.primary {
-    background: white;
-    color: #312e81;
-}
-
-.yes {
-    background: #22c55e;
-    color:white;
-}
-
-.no {
-    background:#ef4444;
-    color:white;
-
-    position:relative;
-}
-
-.option {
-
-    display:block;
-
-    width:80%;
-
-    margin:12px auto;
-
-    background:rgba(255,255,255,.15);
-
-    color:white;
-
-    border:1px solid rgba(255,255,255,.2);
-
-}
-
-.option:hover {
-
-    background:white;
-
-    color:#312e81;
-
-}
-
-.memory {
-
-    background:rgba(0,0,0,.2);
-
-    border-radius:20px;
-
-    padding:20px;
-
-    margin:20px 0;
-
-}
-
-.meme {
-
-    width:100%;
-
-    max-width:500px;
-
-    border-radius:18px;
-
-    margin:20px auto;
-
-    display:block;
-
-}
-
-.photo-placeholder {
-
-    border:2px dashed rgba(255,255,255,.4);
-
-    border-radius:20px;
-
-    padding:30px;
-
-    margin:20px 0;
-
-}
-
+.topbar span:last-child { color: #e8c78d; }
 .progress {
-
-    position:fixed;
-
-    top:15px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    font-size:13px;
-
-    opacity:.7;
-
+  height: 4px;
+  background: #ffffff25;
 }
-
+#progressBar {
+  height: 100%;
+  width: 4.5%;
+  background: var(--gold);
+  transition: width .35s;
+}
+.stage {
+  width: min(850px, 94%);
+  margin: 28px auto 50px;
+}
+.book {
+  position: relative;
+  min-height: 520px;
+  padding: clamp(24px,5vw,54px);
+  overflow: hidden;
+  border: 1px solid #d8b984;
+  border-radius: 5px 22px 22px 5px;
+  background:
+    linear-gradient(90deg,#e4d0ad 0,#fff8ec 5%,#fffaf0 95%,#e7d2ad 100%);
+  box-shadow: 0 24px 70px #120b08a6, inset 0 0 55px #a87a3715;
+  animation: pageIn .45s ease;
+}
+.book::before {
+  content: "";
+  position: absolute;
+  left: 13px; top: 0; bottom: 0;
+  width: 2px;
+  background: #a9845540;
+}
+.book::after {
+  content: "";
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: linear-gradient(90deg,#d5bc92,#f9eedb,#d8bd93);
+  pointer-events: none;
+}
+.book > * { position: relative; z-index: 1; }
+.hidden { display: none !important; }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font: 11px Arial,sans-serif;
+  color: var(--brown);
+}
+h1 {
+  font-size: clamp(34px,7vw,59px);
+  line-height: 1.04;
+  font-weight: normal;
+  margin: 17px 0;
+}
+h2 {
+  font-size: clamp(25px,5vw,38px);
+  line-height: 1.15;
+  font-weight: normal;
+  margin: 14px 0;
+}
+p {
+  font-size: 17px;
+  line-height: 1.75;
+}
+.small { font-size: 13px; color: #806b58; }
+.ornament {
+  margin: 20px auto;
+  color: #b4864a;
+  text-align: center;
+  letter-spacing: 8px;
+}
+.art {
+  display: grid;
+  place-items: center;
+  min-height: 145px;
+  margin: 20px 0;
+  border: 1px solid #d7bf99;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 50% 40%,#f5dfb9,#e4c69a 70%,#d6b88a);
+  font-size: 76px;
+}
+.art.dark {
+  color: #fff0d7;
+  background:
+    radial-gradient(circle at 50% 35%,#795c42,#30241c 75%);
+}
+.art.rose {
+  background: linear-gradient(135deg,#f5dfe0,#e6b9b2,#f9eadc);
+}
+.art.green {
+  background: linear-gradient(135deg,#e1e6d2,#b9c8a6,#f7eedb);
+}
+.btn {
+  display: inline-block;
+  border: 1px solid #785239;
+  border-radius: 4px;
+  background: var(--brown);
+  color: #fff8ec;
+  padding: 13px 20px;
+  margin: 6px 5px 6px 0;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); background: #4d3024; }
+.btn.light { color: var(--ink); background: transparent; }
+.btn.gold { color: #39251e; background: #e8c88f; border-color: #b58a4e; }
+.btn.rose { background: var(--rose); border-color: var(--rose); }
+.choices { display: grid; gap: 10px; margin: 22px 0; }
+.choices .btn {
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  background: #f6ead8;
+  color: var(--ink);
+  border-color: #ddc6a5;
+}
+.choices .btn:hover { background: #ead6b8; }
+.note {
+  padding: 18px;
+  margin: 18px 0;
+  border-left: 3px solid var(--gold);
+  background: #f3e6d1;
+  line-height: 1.7;
+}
+.result {
+  min-height: 45px;
+  margin: 15px 0;
+  padding: 12px;
+  background: #f3e7d6;
+  border-radius: 4px;
+  line-height: 1.65;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+.tile {
+  padding: 15px;
+  background: #f3e7d5;
+  border: 1px solid #e2cbaa;
+  border-radius: 5px;
+  line-height: 1.5;
+}
+.tile strong { display: block; margin-bottom: 6px; }
+.meme {
+  background: #29211e;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 26px 15px;
+  margin: 18px 0;
+  font-family: Arial,sans-serif;
+  font-weight: bold;
+  font-size: clamp(19px,4vw,29px);
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+.meme .caption {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #e8c88f;
+}
+.photo-placeholder {
+  padding: 24px 12px;
+  text-align: center;
+  background: #f0e2cc;
+  border: 1px dashed #a98962;
+  border-radius: 5px;
+}
+.photo-placeholder .emoji { font-size: 43px; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font: 11px Arial,sans-serif;
+  letter-spacing: 1px;
+  color: #846b52;
+}
+#toast {
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  bottom: 20px;
+  width: min(90%,500px);
+  transform: translateX(-50%);
+  padding: 14px 18px;
+  border-radius: 5px;
+  background: #291c17;
+  color: #fff3df;
+  box-shadow: 0 5px 25px #0005;
+  text-align: center;
+}
+#noButton { position: relative; }
 .confetti {
-
-    position:fixed;
-
-    width:10px;
-
-    height:10px;
-
-    top:-10px;
-
-    animation:fall 4s linear forwards;
-
+  position: fixed;
+  top: -12px;
+  width: 9px;
+  height: 12px;
+  z-index: 9;
+  pointer-events: none;
+  animation: fall 3.8s linear forwards;
 }
-
-@keyframes appear {
-
-    from {
-        opacity:0;
-        transform:translateY(30px) scale(.95);
-    }
-
-    to {
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fall {
-
-    to {
-        transform:translateY(110vh) rotate(720deg);
-    }
-
+  to { transform: translateY(110vh) rotate(720deg); opacity: .15; }
 }
-
-@media(max-width:500px){
-
-    h1 {
-        font-size:32px;
-    }
-
-    h2 {
-        font-size:25px;
-    }
-
-    p {
-        font-size:16px;
-    }
-
+@media(max-width:540px) {
+  .stage { margin-top: 16px; }
+  .book { min-height: 470px; padding: 27px 22px; }
+  p { font-size: 16px; }
+  .two-col { grid-template-columns: 1fr 1fr; }
+  .topbar { font-size: 10px; }
 }
-
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
 </style>
 </head>
 
 <body>
-
-<div class="progress" id="progress">
-LEVEL 1
-</div>
-
-<div class="container">
-
-
-<!-- ================================================= -->
-<!-- STEP 1 -->
-<!-- ================================================= -->
-
-<div class="card" id="step1">
-
-<div class="emoji">🔐</div>
-
-<h1>CLASSIFIED FILE</h1>
-
-<p>⚠️ WARNING ⚠️</p>
-
-<p>
-This website contains extremely confidential information
-about one suspicious human named...
-</p>
-
-<h2>MAHENDER 👀</h2>
-
-<p>
-Access allowed only to the birthday boy.
-</p>
-
-<button class="primary" onclick="nextStep(2)">
-🔓 CLICK NOW
-</button>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 2 -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step2">
-
-<div class="emoji">👋</div>
-
-<h1>Hello Mahender!</h1>
-
-<p>
-Welcome to your very unnecessarily complicated
-birthday surprise. 😂
-</p>
-
-<p>
-Before we proceed, we need to establish
-something VERY important.
-</p>
-
-<h2>
-Are you ready?
-</h2>
-
-<button class="primary" onclick="nextStep(3)">
-YES 😎
-</button>
-
-<button class="primary" onclick="nextStep(3)">
-Obviously 🙄
-</button>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 3 BEST FRIEND QUESTION -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step3">
-
-<div class="emoji">❤️</div>
-
-<h2>IMPORTANT QUESTION</h2>
-
-<p>
-
-Be honest...
-
-</p>
-
-<h1>
-Am I your only<br>
-BEST FRIEND? 👀
-</h1>
-
-<p>
-Think carefully before answering...
-</p>
-
-<button class="yes" onclick="bestFriendYes()">
-YES ❤️
-</button>
-
-<button
-class="no"
-id="noButton"
-onmouseover="runAway()"
-ontouchstart="runAway()"
-onclick="runAway()">
-
-NO 😈
-
-</button>
-
-<p id="noMessage"></p>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 4 -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step4">
-
-<div class="emoji">😂</div>
-
-<h2>
-GOOD ANSWER.
-</h2>
-
-<p>
-I knew you had good taste.
-</p>
-
-<p>
-But now we need to test how well you actually know
-your own life.
-</p>
-
-<h2>
-QUESTION #1
-</h2>
-
-<p>
-If Mahender says...
-</p>
-
-<h2>
-"I'm coming in 5 minutes."
-</h2>
-
-<p>
-What does it actually mean?
-</p>
-
-<button class="option"
-onclick="quizAnswer('wrong')">
-
-⏱️ 5 minutes
-
-</button>
-
-<button class="option"
-onclick="quizAnswer('right')">
-
-😂 Somewhere between 30 minutes and tomorrow
-
-</button>
-
-<button class="option"
-onclick="quizAnswer('wrong')">
-
-🚀 He is already outside
-
-</button>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 5 -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step5">
-
-<div class="emoji">🧠</div>
-
-<h2>
-QUESTION #2
-</h2>
-
-<p>
-What is Mahender's greatest superpower?
-</p>
-
-<button class="option"
-onclick="nextStep(6)">
-
-😴 Sleeping anywhere
-
-</button>
-
-<button class="option"
-onclick="nextStep(6)">
-
-😂 Making people laugh
-
-</button>
-
-<button class="option"
-onclick="nextStep(6)">
-
-🍕 Detecting food from 500 meters
-
-</button>
-
-<button class="option"
-onclick="nextStep(6)">
-
-🤦 Making questionable decisions
-
-</button>
-
-<p>
-Honestly...
-</p>
-
-<p>
-<strong>
-All of the above.
-</strong>
-😂
-</p>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 6 CHILDHOOD -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step6">
-
-<div class="emoji">🏫</div>
-
-<h1>A LITTLE THROWBACK</h1>
-
-<div class="memory">
-
-<p>
-You know what's funny?
-</p>
-
-<p>
-We weren't actually that close during school.
-</p>
-
-<p>
-We were there...
-</p>
-
-<p>
-We knew each other...
-</p>
-
-<p>
-But life had other plans. 😄
-</p>
-
-</div>
-
-<button class="primary"
-onclick="nextStep(7)">
-
-SO WHAT HAPPENED?
-
-</button>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 7 ADULTING -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step7">
-
-<div class="emoji">🧑‍💻</div>
-
-<h1>ADULTING HAPPENED...</h1>
-
-<div class="memory">
-
-<p>
-Somehow...
-</p>
-
-<p>
-School didn't make us best friends.
-</p>
-
-<p>
-<strong>
-Adulting did.
-</strong>
-</p>
-
-<p>
-😂
-</p>
-
-<p>
-Somewhere along the way,
-random conversations became long conversations,
-and casual friendship became
-<strong>actual friendship.</strong>
-</p>
-
-</div>
-
-<button class="primary"
-onclick="nextStep(8)">
-
-KEEP GOING ❤️
-
-</button>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 8 MEMORY -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step8">
-
-<div class="emoji">📸</div>
-
-<h1>THE MEMORIES</h1>
-
-<p>
-Not every friendship needs to start in childhood.
-</p>
-
-<p>
-Sometimes the best ones happen when you're older...
-when you actually understand the value of having
-someone around.
-</p>
-
-<div class="memory">
-
-<p>
-From random conversations...
-</p>
-
-<p>
-to random plans...
-</p>
-
-<p>
-to random nonsense...
-</p>
-
-<p>
-somehow we collected a lot of memories. 😂
-</p>
-
-</div>
-
-<button class="primary"
-onclick="nextStep(9)">
-
-SHOW ME THE MEMES 😂
-
-</button>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 9 MEMES -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step9">
-
-<div class="emoji">🤣</div>
-
-<h1>MEME DEPARTMENT</h1>
-
-<p>
-Because no birthday friendship website
-is complete without memes.
-</p>
-
-<!-- TEST MEME -->
-
-<img
-class="meme"
-src="https://cdn.memes.com/up/59065661634833463/i/1636906523819.png"
-alt="Birthday meme">
-
-<p>
-<strong>
-How normal friends celebrate birthdays:
-</strong>
-</p>
-
-<p>
-🎂 Happy Birthday bro!
-</p>
-
-<p>
-<strong>
-How we celebrate:
-</strong>
-</p>
-
-<p>
-🔥🔥🔥 CHAOS 🔥🔥🔥
-</p>
-
-<button class="primary"
-onclick="nextStep(10)">
-
-ONE LAST TEST 😈
-
-</button>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 10 -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step10">
-
-<div class="emoji">🤔</div>
-
-<h2>
-FINAL QUESTION
-</h2>
-
-<p>
-If we had met much earlier...
-</p>
-
-<p>
-would we have become this close?
-</p>
-
-<button class="option"
-onclick="finalThought()">
-
-Maybe ❤️
-
-</button>
-
-<button class="option"
-onclick="finalThought()">
-
-Definitely 😂
-
-</button>
-
-<button class="option"
-onclick="finalThought()">
-
-We would have annoyed each other sooner 🤣
-
-</button>
-
-<div id="finalThought"></div>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- STEP 11 FINAL -->
-<!-- ================================================= -->
-
-<div class="card hidden" id="step11">
-
-<div class="emoji">🎂</div>
-
-<h1>
-HAPPY BIRTHDAY
-</h1>
-
-<h1>
-MAHENDER! 🥳
-</h1>
-
-<div class="photo-placeholder">
-
-<p>
-📸 MAHENDER'S BEST PHOTO WILL GO HERE
-</p>
-
-<p>
-We'll replace this with your actual photo.
-</p>
-
-</div>
-
-<p>
-Another year.
-</p>
-
-<p>
-Another level unlocked. 🎮
-</p>
-
-<p>
-And somehow you're still surviving. 😂
-</p>
-
-<div class="memory">
-
-<p>
-I'm genuinely glad that life brought us
-closer when it did.
-</p>
-
-<p>
-We may not have been the closest during school,
-but somewhere during this crazy thing called
-<strong>adulting</strong>,
-we became friends who actually matter to each other.
-</p>
-
-<p>
-And honestly...
-that's a pretty cool story. ❤️
-</p>
-
-</div>
-
-<h2>
-Here's to more memories,
-more nonsense,
-more laughs,
-and many more birthdays. 🥂
-</h2>
-
-<h1>
-HAPPY BIRTHDAY BRO! 🎉❤️
-</h1>
-
-<button class="primary"
-onclick="createConfetti()">
-
-🎉 CELEBRATE
-</button>
-
-</div>
-
-</div>
-
+<header class="topbar">
+  <span>THE MAHENDER CHRONICLES</span>
+  <span id="chapterLabel">CHAPTER 01 / 22</span>
+</header>
+<div class="progress"><div id="progressBar"></div></div>
+
+<main class="stage">
+
+<!-- CHAPTER 1 -->
+<section class="book" id="s1">
+  <div class="eyebrow">A limited edition birthday story</div>
+  <div class="art dark">📚</div>
+  <div class="ornament">✦ ✧ ✦</div>
+  <h1>The Mahender<br>Chronicles</h1>
+  <p>A bookworm. A doctor. A rom-com enthusiast. A man with very specific snack preferences.</p>
+  <p>One birthday. Twenty-two chapters. Several questionable plot twists.</p>
+  <div class="note">Some stories begin in childhood. Others begin when adulthood decides to write a better plot.</div>
+  <button class="btn gold" onclick="go(2)">OPEN THE BOOK →</button>
+  <div class="footer"><span>PERSONAL EDITION</span><span>EST. FOR MAHENDER</span></div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="book hidden" id="s2">
+  <div class="eyebrow">Chapter 01 · The prologue</div>
+  <div class="art">🔖</div>
+  <h2>A note for the reader...</h2>
+  <p>Dear Mahender,</p>
+  <p>You have opened a highly classified book containing facts about your life, your habits, and your extremely important opinions about snacks.</p>
+  <p>There may be emotional moments. There will probably be nonsense.</p>
+  <p><strong>Continue at your own risk.</strong></p>
+  <button class="btn" onclick="go(3)">I ACCEPT THE RISK</button>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="book hidden" id="s3">
+  <div class="eyebrow">Chapter 02 · The main character</div>
+  <div class="art rose">👋</div>
+  <h1>Helloooo, Mahender!</h1>
+  <p>Welcome to your very own birthday novel.</p>
+  <p>Before the story continues, the author needs to know what brought you here.</p>
+  <h2>What are you looking for?</h2>
+  <div class="choices">
+    <button class="btn" onclick="answer(3,'laugh')">😂 A good laugh</button>
+    <button class="btn" onclick="answer(3,'surprise')">🎁 A surprise</button>
+    <button class="btn" onclick="answer(3,'secret')">🕵️ Secret information about myself</button>
+  </div>
+  <div id="r3" class="result hidden"></div>
+  <button class="btn gold" onclick="go(4)">TURN THE PAGE →</button>
+</section>
+
+<!-- CHAPTER 4 -->
+<section class="book hidden" id="s4">
+  <div class="eyebrow">Chapter 03 · An important investigation</div>
+  <div class="art dark">❤️</div>
+  <h2>Answer carefully, Doctor.</h2>
+  <p>Am I your <strong>only best friend?</strong></p>
+  <p>This question has been reviewed by absolutely no scientific committee.</p>
+  <button class="btn gold" onclick="showToast('Correct answer. Your friendship privileges have been renewed. ❤️');go(5)">YES ❤️</button>
+  <button class="btn" id="noButton" onpointerenter="runAway()" onclick="runAway()">NO 😈</button>
+  <p class="small">Disclaimer: the author may be slightly biased.</p>
+</section>
+
+<!-- CHAPTER 5 -->
+<section class="book hidden" id="s5">
+  <div class="eyebrow">Chapter 04 · The bookworm files</div>
+  <div class="art">📖</div>
+  <h2>You enter a bookstore...</h2>
+  <p>You went in for one book. You leave with three new books, two recommendations, and a list of books to read later.</p>
+  <p>What happened?</p>
+  <div class="choices">
+    <button class="btn" onclick="answer(5,1)">I bought the book I needed.</button>
+    <button class="btn" onclick="answer(5,2)">The books chose me. I had no choice.</button>
+    <button class="btn" onclick="answer(5,3)">I stayed there long enough to become part of the furniture.</button>
+  </div>
+  <div id="r5" class="result hidden"></div>
+  <button class="btn gold" onclick="go(6)">NEXT CHAPTER →</button>
+</section>
+
+<!-- CHAPTER 6 -->
+<section class="book hidden" id="s6">
+  <div class="eyebrow">Chapter 05 · Just one more chapter</div>
+  <div class="art">🌙</div>
+  <h2>It is 1:47 AM.</h2>
+  <p>The book is getting interesting. You promised yourself you'd sleep two chapters ago.</p>
+  <h2>What's the plan?</h2>
+  <div class="choices">
+    <button class="btn" onclick="answer(6,1)">Sleep. I have discipline.</button>
+    <button class="btn" onclick="answer(6,2)">One more chapter. Definitely the last.</button>
+    <button class="btn" onclick="answer(6,3)">Finish the book. Face tomorrow's consequences tomorrow.</button>
+  </div>
+  <div id="r6" class="result hidden"></div>
+  <button class="btn gold" onclick="go(7)">KEEP READING →</button>
+</section>
+
+<!-- CHAPTER 7 -->
+<section class="book hidden" id="s7">
+  <div class="eyebrow">Chapter 06 · The rom-com department</div>
+  <div class="art rose">🎬</div>
+  <h2>Choose your fictional chaos.</h2>
+  <p>Which rom-com trope deserves its own shelf in your library?</p>
+  <div class="choices">
+    <button class="btn" onclick="answer(7,1)">Enemies to lovers 💥</button>
+    <button class="btn" onclick="answer(7,2)">Slow burn with 47 almost-confessions 🔥</button>
+    <button class="btn" onclick="answer(7,3)">Fake dating that becomes real 💌</button>
+    <button class="btn" onclick="answer(7,4)">The childhood-friends-to-lovers plot 🌷</button>
+  </div>
+  <div id="r7" class="result hidden"></div>
+  <button class="btn gold" onclick="go(8)">NEXT SCENE →</button>
+</section>
+
+<!-- CHAPTER 8 -->
+<section class="book hidden" id="s8">
+  <div class="eyebrow">Chapter 07 · Fiction versus reality</div>
+  <div class="art rose">💐</div>
+  <h2>The fictional green-flag test</h2>
+  <p>A fictional character remembers the smallest details, listens carefully, and supports your dreams.</p>
+  <p>Your reaction?</p>
+  <div class="choices">
+    <button class="btn" onclick="answer(8,1)">Finally, basic emotional intelligence!</button>
+    <button class="btn" onclick="answer(8,2)">Where do I find this person? Asking for research.</button>
+    <button class="btn" onclick="answer(8,3)">Let me finish the drama before discussing reality.</button>
+  </div>
+  <div id="r8" class="result hidden"></div>
+  <button class="btn gold" onclick="go(9)">CONTINUE →</button>
+</section>
+
+<!-- CHAPTER 9 -->
+<section class="book hidden" id="s9">
+  <div class="eyebrow">Chapter 08 · The episode trap</div>
+  <div class="art dark">🍿</div>
+  <h2>One more episode?</h2>
+  <p>The episode ends on a cliffhanger. The next episode starts automatically.</p>
+  <p>It is a weekday. Your responsibilities are waiting.</p>
+  <div class="choices">
+    <button class="btn" onclick="answer(9,1)">Turn it off. Responsible citizen.</button>
+    <button class="btn" onclick="answer(9,2)">Just one more episode.</button>
+    <button class="btn" onclick="answer(9,3)">Who needs sleep when the plot is THIS good?</button>
+  </div>
+  <div id="r9" class="result hidden"></div>
+  <button class="btn gold" onclick="go(10)">NEXT SCENE →</button>
+</section>
+
+<!-- CHAPTER 10 -->
+<section class="book hidden" id="s10">
+  <div class="eyebrow">Chapter 09 · A beverage love story</div>
+  <div class="art">☕</div>
+  <h2>The great chai-to-coffee plot twist</h2>
+  <p>Once upon a time, there was a man who loved tea.</p>
+  <p>Then coffee entered the story. A new era began. The plot changed. The beverage budget got complicated.</p>
+  <div class="note"><strong>But Mahender...</strong> You may switch to coffee, but don't forget tea. Chai was there before the coffee character got written into the script. 😂</div>
+  <h2>Choose your current beverage status.</h2>
+  <div class="choices">
+    <button class="btn" onclick="answer(10,1)">Tea forever. OG loyalty. ☕</button>
+    <button class="btn" onclick="answer(10,2)">Coffee is my current era. ☕</button>
+    <button class="btn" onclick="answer(10,3)">Both. I refuse to choose. 😂</button>
+  </div>
+  <div id="r10" class="result hidden"></div>
+  <button class="btn gold" onclick="go(11)">NEXT CHAPTER →</button>
+</section>
+
+<!-- CHAPTER 11 -->
+<section class="book hidden" id="s11">
+  <div class="eyebrow">Chapter 10 · Classified fruit intelligence</div>
+  <div class="art">🥭</div>
+  <h1>The Mango Files</h1>
+  <p>Every great hero has a weakness. Some have kryptonite. Some have a tragic backstory.</p>
+  <p><strong>Mahender just needs a mango.</strong> 🥭</p>
+  <h2>A basket of mangoes arrives. What happens?</h2>
+  <div class="choices">
+    <button class="btn" onclick="answer(11,1)">I'll eat just one. 😇</button>
+    <button class="btn" onclick="answer(11,2)">Keep the whole basket here. 🥭</button>
+    <button class="btn" onclick="answer(11,3)">Mango first. Everything else later.</button>
+  </div>
+  <div id="r11" class="result hidden"></div>
+  <div class="note">Official report: the mango season is a matter of national importance to this birthday boy.</div>
+  <button class="btn gold" onclick="go(12)">OPEN THE NEXT FILE →</button>
+</section>
+
+<!-- CHAPTER 12 -->
+<section class="book hidden" id="s12">
+  <div class="eyebrow">Chapter 11 · Snack security</div>
+  <div class="art">🍌</div>
+  <h1>The Banana Chips Files</h1>
+  <p>A fresh packet of banana chips has entered the room.</p>
+  <p>Witnesses report a sudden increase in happiness. Investigators are on the scene.</p>
+  <h2>What is your strategy?</h2>
+  <div class="choices">
+    <button class="btn" onclick="answer(12,1)">Share with everyone. ❤️</button>
+    <button class="btn" onclick="answer(12,2)">Keep the packet within reach. 😎</button>
+    <button class="btn" onclick="answer(12,3)">Packet finished. What packet? 🤣</button>
+  </div>
+  <div id="r12" class="result hidden"></div>
+  <button class="btn gold" onclick="go(13)">NEXT CHAPTER →</button>
+</section>
+
+<!-- CHAPTER 13 -->
+<section class="book hidden" id="s13">
+  <div class="eyebrow">Chapter 12 · Dr. Mahender's casebook</div>
+  <div class="art green">🩺</div>
+  <h1>Doctor, the patient is YOU.</h1>
+  <p>Patient presents with an acute birthday. Symptoms include excessive happiness, cake cravings, and an inability to act his age.</p>
+  <div class="note">
+    <strong>Clinical impression:</strong> Birthday-related excitement.<br>
+    <strong>Recommended management:</strong> Cake, laughter, rest, good company, and absolutely no guilt about enjoying the day.
+  </div>
+  <p>Next, the birthday dispensary contains 26 fictional, playful names. They are jokes, not real homeopathic remedies or medical advice.</p>
+  <button class="btn gold" onclick="go(14)">OPEN THE DISPENSARY →</button>
+</section>
+
+<!-- CHAPTER 14 -->
+<section class="book hidden" id="s14">
+  <div class="eyebrow">Chapter 13 · The birthday dispensary</div>
+  <h2>26 fictional birthday remedies</h2>
+  <p>Doctor's orders: one generous dose of happiness, with refills as required. These are made-up names for this birthday story, not actual medicines.</p>
+  <div class="two-col">
+    <div class="tile"><strong>01 · Tea-rium</strong>Remember your original chai era.</div>
+    <div class="tile"><strong>02 · Coffe-inum</strong>For the coffee chapter.</div>
+    <div class="tile"><strong>03 · Bookworm-ium</strong>For the never-ending reading list.</div>
+    <div class="tile"><strong>04 · Romcom-ium</strong>For fictional romance exposure.</div>
+    <div class="tile"><strong>05 · Plot-twistinum</strong>For unpredictable chapters.</div>
+    <div class="tile"><strong>06 · Focus-ium</strong>For study sessions.</div>
+    <div class="tile"><strong>07 · Revision-ium</strong>For another round of revision.</div>
+    <div class="tile"><strong>08 · Confidence-ium</strong>For exam-day courage.</div>
+    <div class="tile"><strong>09 · Sleep-ium</strong>For nights without cliffhangers.</div>
+    <div class="tile"><strong>10 · Distraction-ium</strong>For resisting the next episode.</div>
+    <div class="tile"><strong>11 · Memory-ium</strong>For saving the good moments.</div>
+    <div class="tile"><strong>12 · Laughter-ium</strong>For laughing at nonsense.</div>
+    <div class="tile"><strong>13 · Patience-ium</strong>For long syllabi and slow burns.</div>
+    <div class="tile"><strong>14 · Motivation-ium</strong>For difficult study days.</div>
+    <div class="tile"><strong>15 · Cake-ium</strong>For birthday celebrations.</div>
+    <div class="tile"><strong>16 · Friendship-ium</strong>For unexpected friendships.</div>
+    <div class="tile"><strong>17 · Chai-Reload</strong>When the cup is empty.</div>
+    <div class="tile"><strong>18 · Coffee-Reload</strong>When the mug is empty.</div>
+    <div class="tile"><strong>19 · Green-Flag-ium</strong>For fictional perfect partners.</div>
+    <div class="tile"><strong>20 · Reality-ium</strong>For real-life plot twists.</div>
+    <div class="tile"><strong>21 · Determination-ium</strong>For the PG goal.</div>
+    <div class="tile"><strong>22 · Resilience-ium</strong>For bouncing back.</div>
+    <div class="tile"><strong>23 · Joy-ium</strong>For daily reasons to smile.</div>
+    <div class="tile"><strong>24 · Adventure-ium</strong>For new memories.</div>
+    <div class="tile"><strong>25 · Success-ium</strong>For the next career chapter.</div>
+    <div class="tile"><strong>26 · Birthday-maximum</strong>For being the main character today.</div>
+  </div>
+  <div class="note"><strong>Disclaimer:</strong> These are fictional birthday jokes. They are not real medicines, prescriptions, or recommendations for treating any condition.</div>
+  <button class="btn gold" onclick="go(15)">NEXT CHAPTER →</button>
+</section>
+
+<!-- CHAPTER 15 -->
+<section class="book hidden" id="s15">
+  <div class="eyebrow">Chapter 14 · The next big mission</div>
+  <div class="art green">🎓</div>
+  <h1>The AIAPGET Arc</h1>
+  <p>Next year's storyline: postgraduate entrance preparation in Homeopathy.</p>
+  <p>Books to read. Concepts to revise. Questions to practice. Coffee to consume. Rom-com distractions to resist. 😂</p>
+  <div class="tile"><strong>Motivation</strong>Loading... please don't close the application.</div>
+  <div class="tile"><strong>Focus</strong>Stronger than the urge to watch one more episode.</div>
+  <div class="tile"><strong>Future PG energy</strong>100% potential. One study session at a time.</div>
+  <div class="note">Wishing you focus, confidence, steady preparation, and success in the goal you're working towards. You deserve to be proud of every bit of progress.</div>
+  <button class="btn gold" onclick="go(16)">CONTINUE THE STORY →</button>
+</section>
+
+<!-- CHAPTER 16 -->
+<section class="book hidden" id="s16">
+  <div class="eyebrow">Chapter 15 · The study-break dilemma</div>
+  <div class="art">📚</div>
+  <h2>Choose your study-break destiny.</h2>
+  <p>You've studied for a while. Your phone is nearby. A drama is waiting. What happens now?</p>
+  <div class="choices">
+    <button class="btn" onclick="answer(16,1)">Take a sensible five-minute break.</button>
+    <button class="btn" onclick="answer(16,2)">Check one message and disappear for an hour.</button>
+    <button class="btn" onclick="answer(16,3)">Reward myself with an entire episode.</button>
+  </div>
+  <div id="r16" class="result hidden"></div>
+  <button class="btn gold" onclick="go(17)">NEXT CHAPTER →</button>
+</section>
+
+<!-- CHAPTER 17 -->
+<section class="book hidden" id="s17">
+  <div class="eyebrow">Chapter 16 · The official friendship archive</div>
+  <div class="art dark">🏫</div>
+  <h2>Funny how life writes stories.</h2>
+  <p>We weren't especially close during school. We knew each other, shared that chapter, and then life kept moving.</p>
+  <p>There wasn't some giant childhood friendship montage with dramatic background music.</p>
+  <p>And honestly, that is what makes the next chapter special.</p>
+  <button class="btn gold" onclick="go(18)">TURN THE PAGE →</button>
+</section>
+
+<!-- CHAPTER 18 -->
+<section class="book hidden" id="s18">
+  <div class="eyebrow">Chapter 17 · The adulting plot twist</div>
+  <div class="art rose">❤️</div>
+  <h1>Then adulting happened.</h1>
+  <div class="note">
+    School didn't make us best friends.<br>
+    <strong>Adulting did.</strong>
+  </div>
+  <p>Somewhere along the way, conversations became more comfortable, random nonsense became routine, and a casual friendship grew into something more meaningful.</p>
+  <p>We didn't need to have been inseparable from childhood for the friendship to matter.</p>
+  <p>Sometimes life introduces the right people in a chapter you never expected.</p>
+  <button class="btn gold" onclick="go(19)">ONE MORE CHAPTER →</button>
+</section>
+
+<!-- CHAPTER 19 -->
+<section class="book hidden" id="s19">
+  <div class="eyebrow">Chapter 18 · Unofficial character review</div>
+  <div class="art">😂</div>
+  <h2>Mahender: the character review</h2>
+  <div class="two-col">
+    <div class="tile"><strong>📚 Reading</strong>Potentially an entire library.</div>
+    <div class="tile"><strong>🎬 Rom-coms</strong>Professional emotional investment.</div>
+    <div class="tile"><strong>🥭 Mango detection</strong>Exceptional sensitivity.</div>
+    <div class="tile"><strong>🍌 Snack security</strong>Under investigation.</div>
+    <div class="tile"><strong>☕ Beverage identity</strong>Currently in transition.</div>
+    <div class="tile"><strong>🩺 Doctor mode</strong>Officially activated.</div>
+  </div>
+  <p><strong>Overall review:</strong> 5/5 entertainment. Excellent plot potential. Would renew for another season.</p>
+  <button class="btn gold" onclick="go(20)">SEE THE MEMES →</button>
+</section>
+
+<!-- CHAPTER 20 -->
+<section class="book hidden" id="s20">
+  <div class="eyebrow">Chapter 19 · The meme archive</div>
+  <h2>Three very serious scientific findings</h2>
+  <div class="meme">
+    <div class="caption">WHEN THE BOOK HAS ONE CHAPTER LEFT</div>
+    ME: JUST FIVE MINUTES<br>
+    ALSO ME: SUNRISE? 🌅
+  </div>
+  <div class="meme">
+    <div class="caption">THE COFFEE ERA</div>
+    I USED TO BE A TEA PERSON.<br>
+    CHARACTER DEVELOPMENT.<br>
+    PLEASE RESPECT MY ORIGIN STORY. ☕
+  </div>
+  <div class="meme">
+    <div class="caption">AIAPGET PREPARATION</div>
+    OPEN BOOK 📚<br>
+    READ ONE PAGE<br>
+    REMEMBER A ROM-COM SCENE<br>
+    RESTART. 😂
+  </div>
+  <p class="small">These are original text memes for testing. We'll add Mahender's actual photos and personal jokes when you provide them.</p>
+  <button class="btn gold" onclick="go(21)">THE LAST CHAPTER →</button>
+</section>
+
+<!-- CHAPTER 21 -->
+<section class="book hidden" id="s21">
+  <div class="eyebrow">Chapter 20 · A place for the memories</div>
+  <div class="art">📷</div>
+  <h2>The photo album</h2>
+  <p>Every good story deserves illustrations. This page is waiting for Mahender's pictures.</p>
+  <div class="photo-placeholder">
+    <div class="emoji">📸</div>
+    <strong>PHOTO 1 — THE MAIN CHARACTER</strong>
+    <p class="small">Replace this space with Mahender's favourite photo.</p>
+  </div>
+  <div class="photo-placeholder">
+    <div class="emoji">🤣</div>
+    <strong>PHOTO 2 — THE MEME MATERIAL</strong>
+    <p class="small">A funny photo for the birthday roast.</p>
+  </div>
+  <div class="photo-placeholder">
+    <div class="emoji">❤️</div>
+    <strong>PHOTO 3 — THE FRIENDSHIP ARCHIVE</strong>
+    <p class="small">A picture that reminds you of a good memory.</p>
+  </div>
+  <p>We'll add the actual images after you upload them to your repository.</p>
+  <button class="btn gold" onclick="go(22)">OPEN THE FINAL LETTER →</button>
+</section>
+
+<!-- CHAPTER 22 -->
+<section class="book hidden" id="s22">
+  <div class="eyebrow">Final chapter · The birthday reveal</div>
+  <div class="art dark">🎂🎉🎈</div>
+  <div class="ornament">✦ ✧ ✦</div>
+  <h1>HAPPY BIRTHDAY,<br>MAHENDER!</h1>
+  <p>Another year completed. Another chapter unlocked.</p>
+  <div class="note">
+    Dear Mahender,<br><br>
+    I'm genuinely glad that life brought us closer when it did. We may not have been the closest during school, but somewhere along the way, adulthood gave us a friendship I'm happy to have.<br><br>
+    I hope this year brings you happiness, wonderful memories, books you'll never want to put down, stories that make you smile, and success in your AIAPGET journey.<br><br>
+    May your coffee be strong, your tea never be forgotten, your mangoes be sweet, and your banana-chip supply never run out. 😂<br><br>
+    Keep chasing your goals, keep being yourself, and keep writing a life story worth remembering.<br><br>
+    Happy birthday, bro. Here's to more laughs, more adventures, and many more chapters together. ❤️
+  </div>
+  <div class="art rose">📚☕🥭🍌❤️</div>
+  <h2>Your next chapter starts now.</h2>
+  <button class="btn gold" onclick="celebrate()">🎉 CELEBRATE!</button>
+  <button class="btn light" onclick="go(1)">↻ READ AGAIN</button>
+  <div class="footer"><span>WRITTEN WITH FRIENDSHIP</span><span>THE END... FOR NOW</span></div>
+</section>
+
+</main>
+
+<div id="toast" class="hidden" role="status" aria-live="polite"></div>
 
 <script>
+const total = 22;
 
+const responses = {
+  3: {
+    laugh: "Excellent. The comedy department has been notified. 😂",
+    surprise: "A surprise it is. The author has been waiting for this moment. 🎁",
+    secret: "Your file is open. First discovery: you have very specific snack priorities. 🕵️"
+  },
+  5: {
+    1: "A responsible reader! We will investigate this unusual behaviour. 😂",
+    2: "The books chose you. The bank account had no say in the matter. 📚",
+    3: "The bookstore is considering giving you employee benefits."
+  },
+  6: {
+    1: "Who are you? And what have you done with our bookworm?",
+    2: "The most famous last words in literary history. 😂",
+    3: "Tomorrow Mahender can deal with today's plot decisions."
+  },
+  7: {
+    1: "Arguments, tension, and a suspicious amount of chemistry. Classic.",
+    2: "Forty-seven almost-confessions? You clearly enjoy emotional overtime. 😭",
+    3: "The contract was doomed from the moment they made eye contact. 😂",
+    4: "A familiar trope with an excellent emotional payoff. 🌷"
+  },
+  8: {
+    1: "A green flag who communicates? Fiction has set the bar. 😂",
+    2: "This research project may require several more seasons.",
+    3: "Please finish the episode. Academic discussion can wait."
+  },
+  9: {
+    1: "An admirable answer. We are not sure we believe you.",
+    2: "One more episode has now become an official unit of time.",
+    3: "The responsibilities are typing. Mahender is not reading the messages."
+  },
+  10: {
+    1: "The OG chai era lives on. Some legends never fade. ☕",
+    2: "Coffee has entered its main-character era. Tea is watching from the sidelines.",
+    3: "Diplomatic. No beverage shall be abandoned. 😂"
+  },
+  11: {
+    1: "Just one? The mango committee would like a written explanation.",
+    2: "Correct. The basket has been placed under your protection. 🥭",
+    3: "Finally, someone understands seasonal priorities."
+  },
+  12: {
+    1: "A generous soul. The snack-sharing committee approves. ❤️",
+    2: "Strategic snack positioning. Excellent work, Doctor.",
+    3: "The packet is missing. The suspect denies everything. Case closed. 😂"
+  },
+  16: {
+    1: "A healthy break. We are proud of this character development.",
+    2: "A message, three reels, and an unexpected change of career.",
+    3: "The syllabus would like to speak with you. You have declined the call."
+  }
+};
 
-function nextStep(step){
-
-    for(let i=1;i<=11;i++){
-
-        let el=document.getElementById("step"+i);
-
-        if(el){
-            el.classList.add("hidden");
-        }
-
-    }
-
-    document
-    .getElementById("step"+step)
-    .classList.remove("hidden");
-
-    document
-    .getElementById("progress")
-    .innerText="LEVEL "+step;
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+function go(n) {
+  for (let i = 1; i <= total; i++) {
+    const el = document.getElementById("s" + i);
+    if (el) el.classList.add("hidden");
+  }
+  document.getElementById("s" + n).classList.remove("hidden");
+  document.getElementById("chapterLabel").textContent =
+    "CHAPTER " + String(n).padStart(2, "0") + " / " + total;
+  document.getElementById("progressBar").style.width =
+    (n / total * 100) + "%";
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-
-/* BEST FRIEND YES */
-
-function bestFriendYes(){
-
-    alert(
-        "CORRECT ANSWER! ❤️😂\n\nProceeding with the investigation..."
-    );
-
-    nextStep(4);
-
+function answer(chapter, choice) {
+  const target = document.getElementById("r" + chapter);
+  if (!target) return;
+  const chapterResponses = responses[chapter];
+  if (!chapterResponses) return;
+  target.textContent = chapterResponses[choice] || "";
+  target.classList.remove("hidden");
 }
 
-
-/* NO BUTTON RUNS AWAY */
-
-function runAway(){
-
-    const button =
-        document.getElementById("noButton");
-
-    const message =
-        document.getElementById("noMessage");
-
-    const maxX =
-        window.innerWidth - button.offsetWidth - 30;
-
-    const maxY =
-        window.innerHeight - button.offsetHeight - 30;
-
-    const x =
-        Math.random()*Math.max(maxX,100);
-
-    const y =
-        Math.random()*Math.max(maxY,100);
-
-    button.style.position="fixed";
-
-    button.style.left=x+"px";
-
-    button.style.top=y+"px";
-
-    message.innerText=
-        "😂 Nice try Mahender... the NO button has left the chat.";
-
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.remove("hidden");
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => toast.classList.add("hidden"), 2600);
 }
 
-
-/* QUIZ */
-
-function quizAnswer(answer){
-
-    if(answer==="right"){
-
-        alert(
-            "😂 EXACTLY!\n\nScientists confirm your answer."
-        );
-
-    }
-    else{
-
-        alert(
-            "❌ WRONG!\n\nYou clearly don't know yourself."
-        );
-
-    }
-
-    nextStep(5);
-
+function runAway() {
+  const button = document.getElementById("noButton");
+  button.style.position = "fixed";
+  const maxX = Math.max(10, window.innerWidth - button.offsetWidth - 15);
+  const maxY = Math.max(65, window.innerHeight - button.offsetHeight - 15);
+  button.style.left = (10 + Math.random() * (maxX - 10)) + "px";
+  button.style.top = (65 + Math.random() * (maxY - 65)) + "px";
+  showToast("😂 Nice try, Mahender! The NO button has left the chat.");
 }
 
-
-/* FINAL THOUGHT */
-
-function finalThought(){
-
-    document
-    .getElementById("finalThought")
-    .innerHTML=`
-
-        <div class="memory">
-
-        <p>
-        Whatever the answer...
-        </p>
-
-        <p>
-        I'm glad we became friends.
-        ❤️
-        </p>
-
-        <button class="primary"
-        onclick="nextStep(11)">
-
-        🎂 SHOW THE BIRTHDAY MESSAGE
-
-        </button>
-
-        </div>
-
-    `;
-
+function celebrate() {
+  for (let i = 0; i < 140; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti";
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.backgroundColor =
+      "hsl(" + Math.floor(Math.random() * 360) + ",80%,65%)";
+    piece.style.animationDelay = Math.random() * 1.5 + "s";
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 5000);
+  }
+  showToast("HAPPY BIRTHDAY, MAHENDER! 🎂❤️");
 }
 
-
-/* CONFETTI */
-
-function createConfetti(){
-
-    for(let i=0;i<150;i++){
-
-        let c=
-        document.createElement("div");
-
-        c.className="confetti";
-
-        c.style.left=
-        Math.random()*100+"vw";
-
-        c.style.background=
-        "hsl("+Math.random()*360+",100%,60%)";
-
-        c.style.animationDelay=
-        Math.random()*2+"s";
-
-        document.body.appendChild(c);
-
-        setTimeout(()=>{
-            c.remove();
-        },5000);
-
-    }
-
-}
-
+go(1);
 </script>
-
 </body>
 </html>
